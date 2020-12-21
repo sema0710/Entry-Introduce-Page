@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        flex: 1;
+        scroll-behavior: smooth;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .page {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        background-position: center center;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        color: white;
+      }
+      .title {
+        font-size: 3.4722222222222223vw;
+        font-weight: 400;
+        line-height: 4.375vw;
+        text-align: center;
+      }
+      .subTitle {
+        font-size: 1.5277777777777777vw;
+        opacity: 0.5;
+        font-weight: 400;
+        text-align: center;
+        line-height: 4.375vw;
+        margin-bottom: 3.75vw;
+      }
+      .button {
+        background-color: #eb0056;
+        width: auto;
+        height: 80px;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 1.3888888888888888vw;
+        border-radius: 2.083333333333333vw;
+        min-width: 13.125vw;
+        padding: 0 1.5625vw;
+        height: 4.166666666666666vw;
+      }
+      .buttonWrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .background {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .scrollButton {
+        background-size: 1.7361111111111112vw 1.7361111111111112vw;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        width: 3.3333333333333335vw;
+        height: 3.3333333333333335vw;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 5.208333333333334vw;
+      }
+      .arrow {
+        width: 5px;
+        height: 40px;
+        background-color: white;
+        position: relative;
+        border-radius: 10px;
+      }
+      .arrow > div {
+        width: 5px;
+        height: 24px;
+        background-color: white;
+        position: absolute;
+        top: -3px;
+        border-radius: 10px;
+      }
+      .arrow > div:first-child {
+        transform: rotate(-45deg);
+        left: 7px;
+      }
+      .arrow > div:last-child {
+        transform: rotate(45deg);
+        left: -7px;
+      }
+      .pagenationButton {
+        background-color: #ffffff;
+        width: 1.25vw;
+        height: 1.25vw;
+        border-radius: 50%;
+        margin: 0 0 1.1111111111111112vw;
+        opacity: 0.2;
+        cursor: pointer;
+      }
+      .able {
+        opacity: 1;
+        width: 2vw;
+        transition: all 0.3s;
+      }
+      .pagenation {
+        width: 1.25vw;
+        flex-wrap: wrap;
+        position: fixed;
+        right: 50px;
+        top: 50%;
+        display: flex;
+        align-items: center;
+        transform: translateY(-50%);
+        z-index: 2;
+      }
+      .bottomArrow {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pagenation">
+      <div class="pagenationButton able"></div>
+      <div class="pagenationButton"></div>
+      <div class="pagenationButton"></div>
+      <div class="pagenationButton"></div>
+      <div class="pagenationButton"></div>
+    </div>
+    <div class="page" page="0" src="./main.png">
+      <div class="background">
+        <div class="wrapper">
+          <h3 class="title">Entry 5.0 시작합니다.</h3>
+          <h4 class="subTitle">
+            신입생들을 위한 입학 전형 시스템을 만나보세요.
+          </h4>
+          <div class="buttonWrapper">
+            <button class="button">엔트리 이용하기</button>
+          </div>
+          <div class="buttonWrapper">
+            <div class="scrollButton down" data-page="0">
+              <div class="bottomArrow arrow">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page" page="1" src="./type.png">
+      <div class="background">
+        <div class="wrapper">
+          <h3 class="title">여러분들의 전형을 선택해 주세요.</h3>
+          <h4 class="subTitle">본교는 여러분들의 지원을 기다립니다.</h4>
+          <div class="buttonWrapper">
+            <button class="button">엔트리 이용하기</button>
+          </div>
+          <div class="buttonWrapper">
+            <div class="scrollButton down" data-page="1">
+              <div class="bottomArrow arrow">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page" page="2" src="./info.png">
+      <div class="background">
+        <div class="wrapper">
+          <h3 class="title">불안정한 종이는 이제 가라.</h3>
+          <h4 class="subTitle">
+            웹사이트로 여러분들의 정보를 입력하여 pdf로 다운 받으세요.
+          </h4>
+          <div class="buttonWrapper">
+            <button class="button">엔트리 이용하기</button>
+          </div>
+          <div class="buttonWrapper">
+            <div class="scrollButton down" data-page="2">
+              <div class="bottomArrow arrow">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page" page="3" src="./grade.png">
+      <div class="background">
+        <div class="wrapper">
+          <h3 class="title">어려웠던 성적 계산, 이젠 한번에.</h3>
+          <h4 class="subTitle">
+            성적을 입력만 하면 알아서 계산 후 적용합니다.
+          </h4>
+          <div class="buttonWrapper">
+            <button class="button">엔트리 이용하기</button>
+          </div>
+          <div class="buttonWrapper">
+            <div class="scrollButton down" data-page="3">
+              <div class="bottomArrow arrow">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page" page="4" src="./introduction.png">
+      <div class="background">
+        <div class="wrapper">
+          <h3 class="title">자기소개서, 학업계획서 작성하기</h3>
+          <h4 class="subTitle">파일이 아닌 웹사이트에서 작성하세요.</h4>
+          <div class="buttonWrapper">
+            <button class="button">엔트리 이용하기</button>
+          </div>
+          <div class="buttonWrapper">
+            <div class="scrollButton up" data-page="4">
+              <div class="topArrow arrow">
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    (() => {
+      const pages = document.getElementsByClassName("page");
+      const scrollDownButton = document.getElementsByClassName("down");
+      const scrollUpButton = document.getElementsByClassName("up");
+      const pagenation = document.getElementsByClassName("pagenationButton");
+      const buttons = document.getElementsByClassName("button");
+      const resetPagenationButton = () => {
+        for (let i = 0; i < pagenation.length; i++) {
+          pagenation[i].classList.remove("able");
+        }
+      };
+      let nowPage = 0;
+      const setScrollDownButtonEvent = (scrollDownButton) => {
+        for (let i = 0; i < scrollDownButton.length; i++) {
+          scrollDownButton[i].addEventListener("click", (e) => {
+            if (!e.target.dataset.page) {
+              e.preventDefault();
+            }
+            const currentPage = e.currentTarget.dataset.page;
+            const nowPage = parseInt(currentPage) + 1;
+            resetPagenationButton();
+            pagenation[nowPage].classList.add("able");
+            pages[nowPage].scrollIntoView({ behavior: "smooth", block: "end" });
+          });
+        }
+      };
+      const setScrollUpButtonEvent = (scrollUpButton) => {
+        for (let i = 0; i < scrollUpButton.length; i++) {
+          scrollUpButton[i].addEventListener("click", () => {
+            nowPage = 0;
+            resetPagenationButton();
+            pagenation[0].classList.add("able");
+            pages[nowPage].scrollIntoView({ behavior: "smooth", block: "end" });
+          });
+        }
+      };
+      const setPage = (pages) => {
+        for (let i = 0; i < pages.length; i++) {
+          const imgUrl = pages[i].attributes.src.value;
+          pages[i].style.backgroundImage = `url("${imgUrl}")`;
+        }
+      };
+      const setButtonEvent = (buttons) => {
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", () => {
+            window.location.href = "https://apply.entrydsm.hs.kr/";
+          });
+        }
+      };
+      setScrollDownButtonEvent(scrollDownButton);
+      setScrollUpButtonEvent(scrollUpButton);
+      setPage(pages);
+      setButtonEvent(buttons);
+    })();
+  </script>
+</html>
